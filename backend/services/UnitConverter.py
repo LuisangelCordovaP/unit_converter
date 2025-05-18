@@ -8,7 +8,7 @@ class UnitConverter:
             result = LengthConverter().convert(value, from_unit, to_unit)
             return result
         
-        elif category == 'weigth':
+        elif category == 'weight':
             result = WeightConverter().convert(value, from_unit, to_unit)
             return result
         
