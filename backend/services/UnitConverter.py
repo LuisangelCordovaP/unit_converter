@@ -66,24 +66,32 @@ class WeightConverter:
         return base_value / self.conversion_factors[to_unit]
 
 class TemperatureConverter:
-    conversion_factors = {
-        'celsius': 1,
-        'fahrenheit': -17.22222,
-        'kelvin': -272.15,
-    }
+    valid_units = ['celsius', 'fahrenheit', 'kelvin']
 
     def convert(self, value, from_unit, to_unit):
-        if not all(unit in self.conversion_factors for unit in (from_unit, to_unit)):
+        if not all(unit in self.valid_units for unit in (from_unit, to_unit)):
             raise HTTPException(
                 status_code=400,
                 detail=(
                     f"Invalid unit for category 'temperature': '{from_unit}' or '{to_unit}' not recognized"
-                    f"Allowed : {list(self.conversion_factors.keys())}"
+                    f"Allowed : {list(self.valid_units)}"
                 )
             )
-        base_value = value * self.conversion_factors[from_unit]
-        return base_value / self.conversion_factors[to_unit]
+        
+        #Conversion to celsius
+        if from_unit == 'celsius':
+            celsius = value
+        elif from_unit == 'fahrenheit':
+            celsius = (value - 32) * 5 / 9
+        elif from_unit == 'kelvin':
+            celsius = value - 273.15
 
-
+        #Unit Conversion 
+        if to_unit == 'celsius':
+            return celsius
+        elif to_unit == 'fahrenheit':
+            return (celsius * 9/5) + 32
+        elif to_unit == 'kelvin':
+            return celsius + 273.15
 
     
