@@ -1,0 +1,90 @@
+.unit-converter-container {
+  border: 2px solid #ccc;
+  border-radius: 12px;
+  padding: 24px;
+  max-width: 400px;
+  margin: 40px auto;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: sans-serif;
+}
+
+.unit-converter-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: black;
+}
+
+.category-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.category-buttons button {
+  padding: 6px 12px;
+  border: 1px solid #888;
+  background-color: white;
+  color: black;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.category-buttons button.selected,
+.category-buttons button:hover {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.form-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-inputs label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  color: black;
+  text-align: left;
+}
+
+.form-inputs select,
+.form-inputs input {
+  padding: 8px;
+  margin-top: 6px;
+  border-radius: 6px;
+  border: 1px solid #aaa;
+  background-color: white;
+  color: black;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center; /* Centra el botón horizontalmente */
+  margin-top: 20px;
+}
+
+.calculate-button {
+  padding: 10px 24px;
+  background-color: #007bff;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: auto; /* Para que no ocupe todo el ancho */
+  min-width: 120px; /* Un ancho mínimo para que se vea decente */
+}
+
+.calculate-button:hover {
+  background-color: #0056b3;
+}
+
