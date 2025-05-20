@@ -6,7 +6,7 @@ class CategoryEnum(str, Enum):
     weigth = 'weight'
     temperature = 'temperature'
 
-class ConvertionRequest(BaseModel):
+class ConversionRequest(BaseModel):
     category: CategoryEnum
     from_unit : str
     to_unit : str

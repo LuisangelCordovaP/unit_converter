@@ -1,9 +1,9 @@
 from fastapi import FastAPI
-from backend.models import ConvertionRequest
+from backend.models import ConversionRequest
 
 app = FastAPI()
 
 
 @app.post('/convert')
-def convert(req: ConvertionRequest):
+def convert(req: ConversionRequest):
     return req
