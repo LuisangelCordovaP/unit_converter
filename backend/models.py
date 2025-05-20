@@ -11,3 +11,6 @@ class ConversionRequest(BaseModel):
     from_unit : str
     to_unit : str
     value : float
+
+class ConversionResponse(BaseModel):
+    result : float
