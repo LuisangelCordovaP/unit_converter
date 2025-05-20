@@ -2,13 +2,37 @@ from fastapi import HTTPException
 
 
 class UnitConverter:
-    
+    valid_categories = ['length','weight','temperature']
+
+    def _valueIsPositive(self, value, category):
+        if value < 0:
+            raise HTTPException(
+                status_code=400,
+                detail=(
+                    f"Invalid input value, this category: '{category}' does not support negative values"
+                )
+            )
+
+
     def convert(self, category: str, from_unit: str, to_unit: str, value: float):
+        #validate allowed categories
+        if category not in self.valid_categories:
+            raise HTTPException(
+                status_code=400,
+                detail=(
+                    f"Invalid category: '{category}'"
+                    f"Allowed: {list(self.valid_categories)}"
+                )
+            )
+        
+        
         if category == 'length':
+            self._valueIsPositive(value, category)
             result = LengthConverter().convert(value, from_unit, to_unit)
             return result
         
         elif category == 'weight':
+            self._valueIsPositive(value, category)
             result = WeightConverter().convert(value, from_unit, to_unit)
             return result
         
