@@ -9,7 +9,7 @@ class UnitConverter:
             raise HTTPException(
                 status_code=400,
                 detail=(
-                    f"Invalid input value, this category: '{category}' does not support negative values"
+                    f"Invalid input value, this category: '{category.value}' does not support negative values"
                 )
             )
 
@@ -58,7 +58,7 @@ class LengthConverter:
             raise HTTPException(
                 status_code=400,
                 detail=(
-                    f"Invalid unit for category 'length': '{from_unit}' or '{to_unit}' not recognized"
+                    f"Invalid unit for category 'length': '{from_unit}' or '{to_unit}' not recognized. "
                     f"Allowed : {list(self.conversion_factors.keys())}"
                 )
             )
@@ -82,7 +82,7 @@ class WeightConverter:
             raise HTTPException(
                 status_code=400,
                 detail=(
-                    f"Invalid unit for category 'weight': '{from_unit}' or '{to_unit}' not recognized"
+                    f"Invalid unit for category 'weight': '{from_unit}' or '{to_unit}' not recognized. "
                     f"Allowed : {list(self.conversion_factors.keys())}"
                 )
             ) 
@@ -97,7 +97,7 @@ class TemperatureConverter:
             raise HTTPException(
                 status_code=400,
                 detail=(
-                    f"Invalid unit for category 'temperature': '{from_unit}' or '{to_unit}' not recognized"
+                    f"Invalid unit for category 'temperature': '{from_unit}' or '{to_unit}' not recognized. "
                     f"Allowed : {list(self.valid_units)}"
                 )
             )
